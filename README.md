@@ -21,15 +21,15 @@ The plugin settings are highly customizable and you can change:
 - **max Width** - Set a maximum width (in pixels) for the tooltip. Default: null (no max width)
 - **Logging** - Whether to log events in the console
 
+## Plugin Events
+- **APEX Tooltip - on Show** - DA event to do things when a tooltip opens
+- **APEX Tooltip - on Hide** - DA event to do things when a tooltip closes
+
 ## How to use
 - Create a new Dynamic Action with event "onload" (other events also possible)
 - As action choose "APEX Tooltip".
 - Choose best fitting plugin attributes (help included)
 - Choose Affected Elements which tooltips are binded to (Items, Buttons, Regions or JQuery Selectors)
-
-## Plugin Events
-- **APEX Tooltip - on Show** - DA event to do things when a tooltip opens
-- **APEX Tooltip - on Hide** - DA event to do things when a tooltip closes
 
 ## Demo Application
 [https://apex.oracle.com/pls/apex/f?p=APEXPLUGIN](https://apex.oracle.com/pls/apex/f?p=APEXPLUGIN)
