@@ -1,6 +1,6 @@
 /*-------------------------------------
  * APEX Tooltip functions
- * Version: 1.0 (27.03.2016)
+ * Version: 1.1 (13.08.2016)
  * Author:  Daniel Hochleitner
  *-------------------------------------
 */
@@ -11,7 +11,9 @@ FUNCTION render_tooltip(p_dynamic_action IN apex_plugin.t_dynamic_action,
   -- plugin attributes
   l_result       apex_plugin.t_dynamic_action_render_result;
   l_theme        VARCHAR2(100) := p_dynamic_action.attribute_01;
+  l_text_source  VARCHAR2(100) := p_dynamic_action.attribute_11;
   l_content_text VARCHAR2(1000) := p_dynamic_action.attribute_02;
+  l_content_item VARCHAR2(200) := p_dynamic_action.attribute_12;
   l_content_html VARCHAR2(50) := p_dynamic_action.attribute_03;
   l_animation    VARCHAR2(100) := p_dynamic_action.attribute_04;
   l_position     VARCHAR2(100) := p_dynamic_action.attribute_05;
@@ -20,14 +22,17 @@ FUNCTION render_tooltip(p_dynamic_action IN apex_plugin.t_dynamic_action,
   l_min_width    NUMBER := p_dynamic_action.attribute_08;
   l_max_width    NUMBER := p_dynamic_action.attribute_09;
   l_logging      VARCHAR2(50) := p_dynamic_action.attribute_10;
-  -- js file vars
-  l_apextooltip_js VARCHAR2(50);
-  l_tooltipster_js VARCHAR2(50);
+  -- js/css file vars
+  l_apextooltip_js  VARCHAR2(50);
+  l_tooltipster_js  VARCHAR2(50);
+  l_tooltipster_css VARCHAR2(50);
   --
 BEGIN
   -- attribute defaults
   l_theme        := nvl(l_theme,
                         'tooltipster-default');
+  l_text_source  := nvl(l_text_source,
+                        'TEXT');
   l_content_html := nvl(l_content_html,
                         'false');
   l_animation    := nvl(l_animation,
@@ -46,13 +51,15 @@ BEGIN
   IF apex_application.g_debug THEN
     apex_plugin_util.debug_dynamic_action(p_plugin         => p_plugin,
                                           p_dynamic_action => p_dynamic_action);
-    -- set js filenames (normal version)
-    l_apextooltip_js := 'apextooltip';
-    l_tooltipster_js := 'jquery.tooltipster';
+    -- set js/css filenames (normal version)
+    l_apextooltip_js  := 'apextooltip';
+    l_tooltipster_js  := 'tooltipster.bundle';
+    l_tooltipster_css := 'tooltipster.bundle';
   ELSE
     -- minified version
-    l_apextooltip_js := 'apextooltip.min';
-    l_tooltipster_js := 'jquery.tooltipster.min';
+    l_apextooltip_js  := 'apextooltip.min';
+    l_tooltipster_js  := 'tooltipster.bundle.min';
+    l_tooltipster_css := 'tooltipster.bundle.min';
   END IF;
   --
   -- add tooltipster and apextooltip js files
@@ -69,11 +76,11 @@ BEGIN
                               p_skip_extension => FALSE);
   --
   -- add tooltipster css and theme css files
-  apex_css.add_file(p_name      => 'tooltipster',
+  apex_css.add_file(p_name      => l_tooltipster_css,
                     p_directory => p_plugin.file_prefix || 'css/');
   -- theme (not default one)
   IF l_theme != 'tooltipster-default' THEN
-    apex_css.add_file(p_name      => l_theme,
+    apex_css.add_file(p_name      => l_theme || '.min',
                       p_directory => p_plugin.file_prefix || 'css/themes/');
   END IF;
   --
@@ -89,6 +96,8 @@ BEGIN
   l_result.attribute_08        := l_min_width;
   l_result.attribute_09        := l_max_width;
   l_result.attribute_10        := l_logging;
+  l_result.attribute_11        := l_text_source;
+  l_result.attribute_12        := l_content_item;
   --
   RETURN l_result;
   --
