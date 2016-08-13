@@ -13,6 +13,7 @@ A powerful, flexible APEX plugin enabling you to easily create semantic, modern 
 ## Plugin Settings
 The plugin settings are highly customizable and you can change:
 - **Theme** - APEX Tooltip theme (5 different themes to choose from)
+- **Content Text Source** - Source of the tooltip content text (Freetext, Text from item, Text from HTML title attribute of affected element)
 - **Content Text** - Content text of the tooltip
 - **Content with HTML** - If the content of the tooltip is provided as a string, it is displayed as plain text by default. If this content should actually be interpreted as HTML, set this option to true
 - **Animation** - Determines how the tooltip will animate in and out (Fade, Grow, Swing, Slide, Fall)
