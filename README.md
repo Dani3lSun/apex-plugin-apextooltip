@@ -36,6 +36,17 @@ The plugin settings are highly customizable and you can change:
 - Choose best fitting plugin attributes (help included)
 - Choose Affected Elements which tooltips are binded to (Items, Buttons, Regions or JQuery Selectors)
 
+**In your Report/ Interactive Report**
+- You have 2 columns, one is visable and the hidden one holds the tooltip text
+- HTML Expression of visible column:
+```
+<span class="ir_tooltip" title="#TEXT_HIDDEN_COLUMN#">#DISPLAY_COLUMN#</span>
+```
+
+**In the Plugin settings**
+- Content text source: Text from title attribute
+- Affected Elements: JQuery Selector --> .ir_tooltip
+
 ## Demo Application
 [https://apex.oracle.com/pls/apex/f?p=APEXPLUGIN](https://apex.oracle.com/pls/apex/f?p=APEXPLUGIN)
 
