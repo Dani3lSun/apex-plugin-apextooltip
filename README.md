@@ -19,7 +19,7 @@ The plugin settings are highly customizable and you can change:
 - **Content Text** - Content text of the tooltip
 - **Content with HTML** - If the content of the tooltip is provided as a string, it is displayed as plain text by default. If this content should actually be interpreted as HTML, set this option to true
 - **Animation** - Determines how the tooltip will animate in and out (Fade, Grow, Swing, Slide, Fall)
-- **Position** - Set the position of the tooltip (Top, Bottom, Left, Right, Top-Left, Top-Right, Bottom-Left, Bottom-Right)
+- **Position** - Set the position of the tooltip (Top, Bottom, Left, Right)
 - **Trigger** - Set how tooltips should be activated and closed. Default 'hover'
 - **Delay** - Delay how long it takes (in milliseconds) for the tooltip to start animating in. Default 200ms.
 - **min Width** - Set a minimum width (in pixels) for the tooltip. Default: 0 (auto width)
