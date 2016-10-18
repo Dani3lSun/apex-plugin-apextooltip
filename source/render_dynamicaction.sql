@@ -1,6 +1,6 @@
 /*-------------------------------------
  * APEX Tooltip functions
- * Version: 1.1 (13.08.2016)
+ * Version: 1.2 (18.10.2016)
  * Author:  Daniel Hochleitner
  *-------------------------------------
 */

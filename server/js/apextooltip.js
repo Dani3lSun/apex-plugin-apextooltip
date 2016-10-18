@@ -1,6 +1,6 @@
 // APEX Tooltip functions
 // Author: Daniel Hochleitner
-// Version: 1.1
+// Version: 1.2
 
 // global namespace
 var apexTooltip = {

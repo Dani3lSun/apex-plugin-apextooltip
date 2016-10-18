@@ -2,6 +2,8 @@
 A powerful, flexible APEX plugin enabling you to easily create semantic, modern tooltips. Using the open source JQuery plugin tooltipster.
 
 ## Changelog
+### 1.2 - Removed unsupported positions like top-left, bottom-right from plugin ([tooltipster migration guide](https://github.com/iamceege/tooltipster/issues/566)) / upgraded tooltipster to newest version 4.1.5
+
 ### 1.1 - Added text source (freetext, text from item, text from title attribute of affected element) / upgraded tooltipster to newest version 4.1.2
 
 ### 1.0 - Initial Release
